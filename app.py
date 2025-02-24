@@ -1,12 +1,12 @@
 import gradio as gr
+import random
 
-def greet(name, intensity):
-    return "Hello, " + name + "!" * int(intensity)
+def random_response(message, history):
+    return random.choice(["Yes", "No"])
 
-demo = gr.Interface(
-    fn=greet,
-    inputs=["text", "slider"],
-    outputs=["text"],
+chat = gr.ChatInterface(
+    fn=random_response,
+    type="messages"
 )
 
-demo.launch()
+chat.launch(share=True)
