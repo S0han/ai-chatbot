@@ -1,12 +1,6 @@
+from transformers import pipeline
+from transformers import Conversation
+
 import gradio as gr
-import random
 
-def random_response(message, history):
-    return random.choice(["Yes", "No"])
-
-chat = gr.ChatInterface(
-    fn=random_response,
-    type="messages"
-)
-
-chat.launch(share=True)
+chatbot = pipeline(model="facebook/blenderbot-400M-distill")
